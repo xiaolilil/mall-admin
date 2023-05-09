@@ -1,16 +1,9 @@
 import { defineStore } from 'pinia'
-import { IUserState, UserAction } from '../types'
+import { IUserState } from '../types'
 import { store } from '../index'
-import { IUser } from '@/types/api'
-import { Login, Logout, Register } from '@/api/login'
+import { Tlogin } from '@/types/api'
+import { loginApi,logoutApi } from '@/api/login'
 import { AxiosResponse } from 'axios'
-import {
-  setToken,
-  setUsername,
-  getUsername,
-  removeToken,
-  removeUsername,
-} from '@/utils/cookies'
 
 // import { useMainrStores } from './main'
 
@@ -29,15 +22,15 @@ const useUserStore = defineStore({
     /**
      * @description: 登录
      */
-    [UserAction.LOGIN](loginForm: IUser) {
+    login(loginForm: Tlogin) {
       return new Promise((resolve, reject) => {
-        Login(loginForm)
+        loginApi(loginForm)
           .then((res: AxiosResponse) => {
             const { token, username } = res.data
             this.token = token
             this.username = username
-            setToken(token)
-            setUsername(username)
+            // setToken(token)
+            // setUsername(username)
             resolve(res)
           })
           .catch((err) => {
@@ -45,41 +38,23 @@ const useUserStore = defineStore({
           })
       })
     },
-    /**
-     * @description: 注册
-     */
-    [UserAction.REGISTER](registerForm: IUser) {
-      return new Promise((resolve, reject) => {
-        Register(registerForm)
-          .then((res: AxiosResponse) => {
-            resolve(res)
-          })
-          .catch((err) => {
-            reject(err)
-          })
-      })
-    },
+   
     /**
      * @description: 退出
      */
-    [UserAction.LOGOUT]() {
+   logout() {
       return new Promise((resolve, reject) => {
-        this.token = ''
-        this.username = ''
-        removeToken()
-        removeUsername()
-        resolve(1)
-        // Logout()
-        //   .then((res) => {
-        //     this.token = ''
-        //     this.username = ''
-        //     removeToken()
-        //     removeUsername()
-        //     resolve(res)
-        //   })
-        //   .catch((err) => {
-        //     reject(err)
-        //   })
+        logoutApi()
+          .then((res) => {
+            this.token = ''
+            this.username = ''
+            // removeToken()
+            // removeUsername()
+            resolve(res)
+          })
+          .catch((err) => {
+            reject(err)
+          })
       })
     },
     SET_COLLAPSE(state: boolean) {

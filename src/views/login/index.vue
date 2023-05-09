@@ -32,7 +32,10 @@
 import type { FormInstance } from 'element-plus'
 import { ElMessage } from 'element-plus'
 import Particles from '@/components/particles/index.vue'
+import usePinia from '@/store'
 
+const {user} = usePinia()
+console.log(user)
 const form = reactive({
   username: '',
   password: '',
@@ -45,10 +48,13 @@ const rules = {
 }
 
 const onSubmit = async (formEl: FormInstance | undefined) => {
+  ElMessage.error('222222')
   if (!formEl) return
   try {
     loading.value = true
     console.log(form)
+    const res = await user.login(form)
+    console.log(res)
   } catch (err:any) {
     ElMessage.error(err)
   } finally {

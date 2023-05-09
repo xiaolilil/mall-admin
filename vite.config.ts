@@ -18,7 +18,9 @@ export default defineConfig({
     vue(),
     WindiCSS(),
     AutoImport({
-      imports: ['vue'],
+      imports: ['vue', 'vue-router'],
+      dirs:['./src/utils/cache'],
+      dts: './auto-imports.d.ts',
       resolvers: [ElementPlusResolver()],
     }),
     Components({
@@ -49,6 +51,16 @@ export default defineConfig({
       scss: {
         charset: false,
         additionalData: '@import "./src/style/main.scss";',
+      },
+    },
+  },
+  server: {
+    proxy: {
+      '/api': {
+        // target: import.meta.,
+        ws: true,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
