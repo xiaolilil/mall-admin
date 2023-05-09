@@ -38,11 +38,11 @@ export default defineConfig({
   },
   css: {
     // css预处理器
-    // preprocessorOptions: {
-    //   sass: {
-    //     charset: false,
-    //     additionalData: '@import "./src/assets/style/global.less";',
-    //   },
-    // },
+    preprocessorOptions: {
+      scss: {
+        charset: false,
+        additionalData: '@import "./src/style/main.scss";',
+      },
+    },
   },
 })
