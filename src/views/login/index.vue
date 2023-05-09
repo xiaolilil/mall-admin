@@ -1,21 +1,20 @@
 <template>
   <div class="login flex ">
     <div class="login-box">
-      <img class="logo block m-auto" src="@/assets/svg/login-mall.svg">
+      <svg-icon class="block m-auto " icon-class="login-mall" style="width: 56px;height: 56px;color: #409EFF"></svg-icon>
       <h3 class="center my-4">mall-admin</h3>
-
       <el-form ref="formRef" :model="form" class="my-form"  :rules="rules">
         <el-form-item prop="user">
           <el-input v-model="form.username" placeholder="" clearable >
-            <template #prefix> 
-              <img class="user"  src="@/assets/svg/user.svg">
+            <template #prefix>
+              <svg-icon class="block" icon-class="user" style="width: 20px;height: 20px;color: #409EFF"></svg-icon>
             </template>
           </el-input>
         </el-form-item>
         <el-form-item class="mt-6" prop="password">
-          <el-input v-model="form.password" placeholder="" clearable >
+          <el-input v-model="form.password" placeholder="" clearable  type="password">
           <template #prefix> 
-              <img class="user"  src="@/assets/svg/password.svg">
+            <svg-icon class="block" icon-class="password" style="width: 20px;height: 20px;color: #409EFF"></svg-icon>
             </template>
           </el-input>
         </el-form-item>
@@ -87,9 +86,6 @@ const onSubmit = async (formEl: FormInstance | undefined) => {
     height: 10px;
     background-color: $main-color;
   }
-  .logo{
-    color: $main-color;
-  }
   h3{
     color: $main-color;
     font-size: 25px;
@@ -111,5 +107,4 @@ const onSubmit = async (formEl: FormInstance | undefined) => {
     width:100%;
   }
  }
-
 </style>

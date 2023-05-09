@@ -5,6 +5,7 @@ import WindiCSS from 'vite-plugin-windicss'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -23,6 +24,12 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()],
     }),
+    createSvgIconsPlugin({
+      iconDirs: [path.resolve(process.cwd(), "src/assets/svg")], // icon存放的目录
+      symbolId: "icon-[name]", // symbol的id
+      inject: "body-last", // 插入的位置
+      customDomId: "__svg__icons__dom__" // svg的id
+    })
   ],
   resolve: {
     alias: {

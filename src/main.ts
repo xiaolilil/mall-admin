@@ -6,6 +6,7 @@ import Particles from 'particles.vue3'
 import 'virtual:windi.css'
 import 'normalize.css'
 import '@/style/global.scss'
+import "virtual:svg-icons-register"
 
 const app = createApp(App)
 setupRouter(app)
