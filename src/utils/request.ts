@@ -11,7 +11,7 @@ declare module 'axios' {
   }
   export function create(config?: AxiosRequestConfig): AxiosInstance
 }
-// import.meta.env.VITE_APP_API
+
 // 创建 axios 实例
 const http = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,

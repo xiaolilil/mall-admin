@@ -6,7 +6,7 @@ import { useTagsViewStores } from './modules/tagsView'
 import { useConfigStores } from './modules/config'
 import { useCommonStores } from './modules/common'
 
-import piniaPersist from 'pinia-plugin-persist'
+// import piniaPersist from 'pinia-plugin-persist'
 
 const store = createPinia()
 
@@ -20,7 +20,7 @@ const usePinia = () => ({
 export default usePinia
 
 export function setupPinia(app: App<Element>) {
-  store.use(piniaPersist)
+  // store.use(piniaPersist)
   app.use(store)
 }
 export { store }

@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { IUserState } from '../types'
 import { store } from '../index'
-import { Tlogin } from '@/types/api'
+// import { Tlogin } from '@/types/api'
 import { loginApi,logoutApi } from '@/api/login'
 import { AxiosResponse } from 'axios'
 
@@ -22,18 +22,19 @@ const useUserStore = defineStore({
     /**
      * @description: 登录
      */
-    login(loginForm: Tlogin) {
+    LOGIN(loginForm: any) {
       return new Promise((resolve, reject) => {
         loginApi(loginForm)
           .then((res: AxiosResponse) => {
-            const { token, username } = res.data
-            this.token = token
-            this.username = username
+            // const { token, username } = res.data
+            // this.token = token
+            // this.username = username
             // setToken(token)
             // setUsername(username)
             resolve(res)
           })
           .catch((err) => {
+            console.log(err)
             reject(err)
           })
       })
@@ -64,14 +65,14 @@ const useUserStore = defineStore({
       this.currRoute = route
     },
   },
-  persist: {
-    enabled: true, // 这个配置代表存储生效，而且是整个store都存储
-    strategies: [
-      {
-        storage: sessionStorage,
-      },
-    ],
-  },
+  // persist: {
+  //   enabled: true, // 这个配置代表存储生效，而且是整个store都存储
+  //   strategies: [
+  //     {
+  //       storage: sessionStorage,
+  //     },
+  //   ],
+  // },
 })
 
 export default useUserStore

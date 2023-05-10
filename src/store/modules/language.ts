@@ -16,8 +16,9 @@ const useLanguageStore = defineStore({
   getters: {},
   actions: {
     CHANGE_LANGUAGE(language: string) {
-      this.language = language
-      localCache.setCache('language', language, false)
+      console.log(language)
+      // this.language = language
+      // localCache.setCache('language', language, false)
     },
   },
   // persist: {
