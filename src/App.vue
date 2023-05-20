@@ -6,11 +6,9 @@
 </template>
 
 <script setup lang="ts">
-import { useLanguage } from '@/hooks/useLanguage';
+import { useLanguage } from '@/hooks/useLanguage'
 
 const { currLocale } = useLanguage()
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

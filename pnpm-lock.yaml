@@ -6,6 +6,7 @@ specifiers:
   axios: ^1.4.0
   echarts: ^5.4.2
   element-plus: ^2.3.4
+  husky: ^8.0.3
   normalize.css: ^8.0.1
   nprogress: ^0.2.0
   particles.vue3: ^2.9.3
@@ -45,6 +46,7 @@ dependencies:
 devDependencies:
   '@types/node': 20.1.1
   '@vitejs/plugin-vue': 4.2.1_vite@4.3.5+vue@3.2.47
+  husky: 8.0.3
   prettier: 2.8.8
   sass: 1.62.1
   sass-loader: 13.2.2_sass@1.62.1
@@ -1315,6 +1317,12 @@ packages:
       inherits: 2.0.4
       readable-stream: 3.6.2
     dev: false
+
+  /husky/8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
 
   /image-size/0.5.5:
     resolution: {integrity: sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==}
