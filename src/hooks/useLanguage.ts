@@ -8,8 +8,8 @@ export function useLanguage() {
   const v = ref('')
   // 切换语言
   const changeLanguage = (val: string) => {
-    locale.value = val;
-    v.value = val;
+    locale.value = val
+    v.value = val
   }
 
   const language = computed(() => v.value)

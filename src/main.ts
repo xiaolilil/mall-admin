@@ -7,13 +7,12 @@ import Particles from 'particles.vue3'
 import 'virtual:windi.css'
 import 'normalize.css'
 import '@/style/global.scss'
-import "virtual:svg-icons-register"
+import 'virtual:svg-icons-register'
 
-import "element-plus/theme-chalk/el-loading.css";
-import "element-plus/theme-chalk/el-message.css";
-import "element-plus/theme-chalk/el-notification.css";
-import "element-plus/theme-chalk/el-message-box.css";
-
+import 'element-plus/theme-chalk/el-loading.css'
+import 'element-plus/theme-chalk/el-message.css'
+import 'element-plus/theme-chalk/el-notification.css'
+import 'element-plus/theme-chalk/el-message-box.css'
 
 const app = createApp(App)
 setupRouter(app)

@@ -1,5 +1,5 @@
 import http from '@/utils/request'
-import {  Tlogin } from '@/types/api'
+import { Tlogin } from '@/types/api'
 
 /**
  * @description:

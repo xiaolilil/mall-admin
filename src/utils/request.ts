@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 // import { ElMessage, ElMessageBox } from 'element-plus'
 // import { getToken, getUsername } from './cookies'
 
-// 处理  类型“AxiosResponse<any, any>”上不存在属性“errorinfo”。ts(2339) 
+// 处理  类型“AxiosResponse<any, any>”上不存在属性“errorinfo”。ts(2339)
 declare module 'axios' {
   interface AxiosResponse<T = any> {
     resCode: string

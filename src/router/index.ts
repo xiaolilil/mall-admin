@@ -39,7 +39,6 @@ const routes: RouteRecordRaw[] = [
   //     },
   //   ],
   // },
-
 ]
 
 const router = createRouter({

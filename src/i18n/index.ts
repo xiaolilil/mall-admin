@@ -29,7 +29,7 @@ export const i18n = createI18n({
   legacy: false,
   globalInjection: true, // 全局模式，可以直接使用 $t
   locale: localCache.getCache('language', false) || 'zhCn',
-  // silentTranslationWarn: 
+  // silentTranslationWarn:
   // silentFallbackWarn: true,
   // fallbackWarn: false,
   // locale: themeConfig.value.globalI18n, // 采用全局参数配置初始化语言 项目中有`zh-cn`、`en`两种

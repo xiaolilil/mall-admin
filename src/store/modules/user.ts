@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { IUserState } from '../types'
 import { store } from '../index'
 // import { Tlogin } from '@/types/api'
-import { loginApi,logoutApi } from '@/api/login'
+import { loginApi, logoutApi } from '@/api/login'
 import { AxiosResponse } from 'axios'
 
 // import { useMainrStores } from './main'
@@ -39,11 +39,11 @@ const useUserStore = defineStore({
           })
       })
     },
-   
+
     /**
      * @description: 退出
      */
-   logout() {
+    logout() {
       return new Promise((resolve, reject) => {
         logoutApi()
           .then((res) => {

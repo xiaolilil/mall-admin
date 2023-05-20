@@ -19,7 +19,7 @@ export default defineConfig({
     WindiCSS(),
     AutoImport({
       imports: ['vue', 'vue-router'],
-      dirs:['./src/utils/cache'],
+      dirs: ['./src/utils/cache'],
       dts: './auto-imports.d.ts',
       resolvers: [ElementPlusResolver()],
     }),
@@ -27,11 +27,11 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
     createSvgIconsPlugin({
-      iconDirs: [path.resolve(process.cwd(), "src/assets/svg")], // icon存放的目录
-      symbolId: "icon-[name]", // symbol的id
-      inject: "body-last", // 插入的位置
-      customDomId: "__svg__icons__dom__" // svg的id
-    })
+      iconDirs: [path.resolve(process.cwd(), 'src/assets/svg')], // icon存放的目录
+      symbolId: 'icon-[name]', // symbol的id
+      inject: 'body-last', // 插入的位置
+      customDomId: '__svg__icons__dom__', // svg的id
+    }),
   ],
   resolve: {
     alias: {
