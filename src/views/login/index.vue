@@ -56,7 +56,9 @@ import type { FormInstance } from 'element-plus'
 import { ElMessage } from 'element-plus'
 import Particles from '@/components/particles/index.vue'
 import usePinia from '@/store'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const { user } = usePinia()
 const form = reactive({
   username: 'admin',
@@ -75,6 +77,7 @@ const onSubmit = async (formEl: FormInstance | undefined) => {
     loading.value = true
     await user.LOGIN(form)
     ElMessage.success('登录成功')
+    router.push('/home')
   } catch (err: any) {
     console.log(err)
   } finally {
