@@ -1,14 +1,12 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { getToken } from './auth'
-import usePinia from '@/store'
-
-const { user } = usePinia()
+import { useUserStores } from '@/store/modules/user'
 
 // 处理  类型“AxiosResponse<any, any>”上不存在属性“errorinfo”。ts(2339)
 declare module 'axios' {
   interface AxiosResponse<T = any> {
-    resCode: string
+    code: string
     message: string
     // 这里追加你的参数
   }
@@ -24,7 +22,7 @@ const http = axios.create({
 // 请求拦截器
 http.interceptors.request.use(
   (config: AxiosRequestConfig) => {
-    if (user.token !== '') {
+    if (useUserStores().token !== '') {
       config.headers['Authorization'] = getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
     }
     if (!config.headers) {

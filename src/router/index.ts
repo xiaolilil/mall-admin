@@ -5,7 +5,7 @@ import type { RouteRecordRaw } from 'vue-router'
 // import Layout from '@/layout/app-layout.vue'
 // import { $t } from '@/utils/local'
 
-const routes: RouteRecordRaw[] = [
+const constantRouterMap: RouteRecordRaw[] = [
   {
     path: '/',
     redirect: '/login',
@@ -42,7 +42,7 @@ const routes: RouteRecordRaw[] = [
 ]
 
 const router = createRouter({
-  routes,
+  routes: constantRouterMap,
   history: createWebHashHistory(),
   scrollBehavior() {
     return { left: 0, top: 0 }

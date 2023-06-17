@@ -9,6 +9,10 @@ import { useCommonStores } from './modules/common'
 // import piniaPersist from 'pinia-plugin-persist'
 
 const store = createPinia()
+export function setupPinia(app: App<Element>) {
+  // store.use(piniaPersist)
+  app.use(store)
+}
 
 const usePinia = () => ({
   user: useUserStores(),
@@ -19,8 +23,4 @@ const usePinia = () => ({
 })
 export default usePinia
 
-export function setupPinia(app: App<Element>) {
-  // store.use(piniaPersist)
-  app.use(store)
-}
 export { store }

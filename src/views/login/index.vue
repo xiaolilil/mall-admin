@@ -73,7 +73,7 @@ const onSubmit = async (formEl: FormInstance | undefined) => {
   if (!formEl) return
   try {
     loading.value = true
-    const res = await user.LOGIN(form)
+    await user.LOGIN(form)
     ElMessage.success('登录成功')
   } catch (err: any) {
     console.log(err)

@@ -9,4 +9,6 @@ export interface IUserState {
   token: string
   isCollapse: boolean
   currRoute: string
+  menus: any[]
+  roles: string[]
 }

@@ -2,8 +2,10 @@ import { defineStore } from 'pinia'
 import { IUserState } from '../types'
 import { store } from '../index'
 // import { Tlogin } from '@/types/api'
-import { loginApi, logoutApi } from '@/api/login'
+import { loginApi, logoutApi, getInfoApi } from '@/api/login'
 import { AxiosResponse } from 'axios'
+import { getToken, setToken, removeToken } from '@/utils/auth'
+import { ElMessage } from 'element-plus/es/components/index.js'
 
 // import { useMainrStores } from './main'
 
@@ -13,6 +15,8 @@ const useUserStore = defineStore({
     return {
       token: '',
       username: '',
+      menus: [],
+      roles: [],
       isCollapse: false,
       currRoute: '/home/console',
     }
@@ -28,15 +32,31 @@ const useUserStore = defineStore({
           .then((res: AxiosResponse) => {
             const { token, tokenHead } = res.data
             this.token = tokenHead + token
-            // this.username = username
-            // setToken(token)
-            // setUsername(username)
+            setToken(this.token)
+            this.GetUserInfo()
             resolve(res)
           })
           .catch((err) => {
             console.log(err)
             reject(err)
           })
+      })
+    },
+
+    /**
+     * @description: 获取用户信息
+     */
+    GetUserInfo() {
+      getInfoApi().then((res: AxiosResponse) => {
+        const { menus, username, roles } = res.data
+        this.menus = menus
+        // 验证返回的roles是否是一个非空数组
+        if (roles && roles.length > 0) {
+          this.username = username
+          this.roles = roles
+        } else {
+          console.log('getInfo: roles must be a non-null array !')
+        }
       })
     },
 
@@ -49,8 +69,7 @@ const useUserStore = defineStore({
           .then((res) => {
             this.token = ''
             this.username = ''
-            // removeToken()
-            // removeUsername()
+            removeToken()
             resolve(res)
           })
           .catch((err) => {
