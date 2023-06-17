@@ -17,7 +17,7 @@ export function getInfoApi() {
 export function loginApi(data: Tlogin) {
   return http.request({
     method: 'post',
-    url: '/admin/login/',
+    url: '/admin/login',
     data,
   })
 }

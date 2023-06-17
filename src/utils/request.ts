@@ -1,6 +1,9 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
-// import { ElMessage, ElMessageBox } from 'element-plus'
-// import { getToken, getUsername } from './cookies'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import { getToken } from './auth'
+import usePinia from '@/store'
+
+const { user } = usePinia()
 
 // 处理  类型“AxiosResponse<any, any>”上不存在属性“errorinfo”。ts(2339)
 declare module 'axios' {
@@ -21,15 +24,16 @@ const http = axios.create({
 // 请求拦截器
 http.interceptors.request.use(
   (config: AxiosRequestConfig) => {
+    if (user.token !== '') {
+      config.headers['Authorization'] = getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
+    }
     if (!config.headers) {
       throw new Error(
         `Expected 'config' and 'config.headers' not to be undefined`,
       )
     }
-
     // config.headers['Token'] = getToken()
     // config.headers['Username'] = getUsername()
-
     return config
   },
   (error) => {
@@ -40,28 +44,42 @@ http.interceptors.request.use(
 // 响应拦截器
 http.interceptors.response.use(
   (response: AxiosResponse) => {
-    const data = response.data
-    // 不为0，即接口异常时
-    if (data.resCode !== 0) {
-      // Message.error(data.message)
-      return Promise.reject(data)
+    const res: any = response.data
+
+    if (res.code !== 200) {
+      ElMessage({
+        message: res.message,
+        type: 'error',
+        duration: 3000,
+      })
+
+      // 401:未登录;
+      if (res.code === 401) {
+        ElMessageBox.confirm(
+          '你已被登出，可以取消继续留在该页面，或者重新登录',
+          '确定登出',
+          {
+            confirmButtonText: '重新登录',
+            cancelButtonText: '取消',
+            type: 'warning',
+          },
+        ).then(() => {
+          // store.dispatch('FedLogOut').then(() => {
+          //   location.reload()// 为了重新实例化vue-router对象 避免bug
+          // })
+        })
+      }
+      return Promise.reject('error')
     } else {
-      return data // return Promise.resolve(data);
+      return res
     }
   },
   (error) => {
-    // const { code, msg } = error.response.data
-    // if (code === 'A0230') {
-    // token 过期
-    // LocalCache.deleteCache('pet-token') // 清除浏览器全部缓存
-    // window.location.href = '/' // 跳转登录页
-    // ElMessageBox.alert('当前页面已失效，请重新登录', '提示', {})
-    // } else {
-    // ElMessage({
-    //   message: msg || '系统出错',
-    //   type: 'error',
-    // })
-    // }
+    ElMessage({
+      message: error.message,
+      type: 'error',
+      duration: 3000,
+    })
     return Promise.reject(error)
     // return Promise.reject(new Error(msg || 'Error'))
   },

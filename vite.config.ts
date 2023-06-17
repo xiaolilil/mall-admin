@@ -54,14 +54,14 @@ export default defineConfig({
       },
     },
   },
-  server: {
-    proxy: {
-      '/api': {
-        target: 'https://admin-api.macrozheng.com',
-        // ws: true,
-        changeOrigin: true,
-        // rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-    },
-  },
+  // server: {
+  //   proxy: {
+  //     '/api': {
+  //       target: 'https://admin-api.macrozheng.com',
+  //       ws: true,
+  //       changeOrigin: true,
+  //       // rewrite: (path) => path.replace(/^\/api/, ''),
+  //     },
+  //   },
+  // },
 })

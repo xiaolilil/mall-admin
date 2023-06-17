@@ -8,7 +8,7 @@
       ></svg-icon>
       <h3 class="center my-4">mall-admin</h3>
       <el-form ref="formRef" :model="form" class="my-form" :rules="rules">
-        <el-form-item prop="user">
+        <el-form-item prop="username">
           <el-input v-model="form.username" placeholder="" clearable>
             <template #prefix>
               <svg-icon
@@ -59,18 +59,14 @@ import usePinia from '@/store'
 
 const { user } = usePinia()
 const form = reactive({
-  username: '',
-  password: '',
+  username: 'admin',
+  password: 'macro123',
 })
 const formRef = ref()
 const loading = ref(false)
 const rules = {
-  username: [
-    { required: true, message: 'Please input Activity name', trigger: 'blur' },
-  ],
-  password: [
-    { required: true, message: 'Please input Activity name', trigger: 'blur' },
-  ],
+  username: [{ required: true, message: '请输入账号', trigger: 'blur' }],
+  password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
 }
 
 const onSubmit = async (formEl: FormInstance | undefined) => {
@@ -78,13 +74,11 @@ const onSubmit = async (formEl: FormInstance | undefined) => {
   try {
     loading.value = true
     const res = await user.LOGIN(form)
-    console.log(res)
+    ElMessage.success('登录成功')
   } catch (err: any) {
-    ElMessage.error(err)
+    console.log(err)
   } finally {
-    setTimeout(() => {
-      loading.value = false
-    }, 2000)
+    loading.value = false
   }
 }
 </script>

@@ -26,8 +26,8 @@ const useUserStore = defineStore({
       return new Promise((resolve, reject) => {
         loginApi(loginForm)
           .then((res: AxiosResponse) => {
-            // const { token, username } = res.data
-            // this.token = token
+            const { token, tokenHead } = res.data
+            this.token = tokenHead + token
             // this.username = username
             // setToken(token)
             // setUsername(username)

@@ -6,7 +6,8 @@ specifiers:
   axios: ^1.4.0
   echarts: ^5.4.2
   element-plus: ^2.3.4
-  husky: ^8.0.3
+  husky: ^8.0.0
+  js-cookie: ^3.0.5
   normalize.css: ^8.0.1
   nprogress: ^0.2.0
   particles.vue3: ^2.9.3
@@ -32,6 +33,7 @@ dependencies:
   axios: 1.4.0
   echarts: 5.4.2
   element-plus: 2.3.4_vue@3.2.47
+  js-cookie: 3.0.5
   normalize.css: 8.0.1
   nprogress: 0.2.0
   particles.vue3: 2.9.3
@@ -1472,6 +1474,11 @@ packages:
 
   /js-base64/2.6.4:
     resolution: {integrity: sha512-pZe//GGmwJndub7ZghVHz7vjb2LgC1m8B07Au3eYqeqv9emhESByMXxaEgkUkEqJe87oBbSniGYoQNIBklc7IQ==}
+    dev: false
+
+  /js-cookie/3.0.5:
+    resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
+    engines: {node: '>=14'}
     dev: false
 
   /json5/1.0.2:
