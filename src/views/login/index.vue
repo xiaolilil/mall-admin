@@ -89,7 +89,6 @@ const onSubmit = async (formEl: FormInstance | undefined) => {
 .login {
   width: 100%;
   height: 100vh;
-  // background-color: #ecf0f3;
   position: relative;
   justify-content: center;
   align-items: center;

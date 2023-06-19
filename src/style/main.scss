@@ -2,6 +2,7 @@
 $main-color: #409eff;
 $text-color2: #f56c6c;
 $text-color3: #303133;
+
 $main-bg1:#304156;
 $main-bg2:rgb(36, 47, 61);
 
@@ -13,4 +14,10 @@ $main-bg2:rgb(36, 47, 61);
 }
 .center{
   text-align:center;
+}
+
+.flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
