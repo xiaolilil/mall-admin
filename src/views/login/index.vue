@@ -56,7 +56,6 @@ import type { FormInstance } from 'element-plus'
 import { ElMessage } from 'element-plus'
 import Particles from '@/components/particles/index.vue'
 import usePinia from '@/store'
-import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const { user } = usePinia()
