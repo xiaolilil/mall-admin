@@ -6,3 +6,24 @@ html,body{
   margin: 0;
   padding: 0;
 }
+
+.ot{
+  outline: 1px solid red;
+}
+.ot2{
+  outline: 1px solid blue;
+}
+.center{
+  text-align:center;
+}
+.text-r{
+  text-align: right;
+}
+.flex-r-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-d{
+  flex-direction: column;
+}
