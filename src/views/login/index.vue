@@ -52,6 +52,7 @@
 </template>
 
 <script lang="ts" setup>
+//  "moduleResolution": "Node", tsconfig.json 该属性设置为node 
 import type { FormInstance } from 'element-plus'
 import { ElMessage } from 'element-plus'
 import Particles from '@/components/particles/index.vue'
