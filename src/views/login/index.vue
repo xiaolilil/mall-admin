@@ -40,7 +40,7 @@
             :loading="loading"
             class="submit-btn m-auto mt-4"
             type="primary"
-            @click="onSubmit('formRef')"
+            @click="onSubmit(formRef)"
           >
             {{ $t('common.login') }}</el-button
           >

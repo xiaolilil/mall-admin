@@ -1,6 +1,15 @@
 <template>
-  <div>
-    <el-scrollbar height="100vh">
+  <div class="menu-box">
+    <div class="menu-top flex-center">
+      <h2 v-show="!user.isCollapse">mall-admin</h2>
+      <svg-icon
+          v-show="user.isCollapse"
+          class="block m-auto "
+          icon-class="login-mall"
+          style="width: 26px; height: 26px; color: #409eff"
+        ></svg-icon>
+    </div>
+    <el-scrollbar height="calc(100vh - 41px)">
       <!-- background-color="#545c64" -->
       <el-menu
         active-text-color="#ffd04b"
@@ -110,6 +119,9 @@
 </template>
 
 <script lang="ts" setup>
+import usePinia from '@/store'
+
+const { user } = usePinia()
 const handleOpen = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
 }
@@ -119,11 +131,24 @@ const handleClose = (key: string, keyPath: string[]) => {
 </script>
 
 <style lang="scss" scoped>
+.menu-box {
+  background-color: $main-bg1;
+  overflow: hidden;
+  .menu-top{
+    height:40px;
+    line-height: 40px;
+  }
+  h2 {
+    text-align: center;
+    color: #fff;
+    border-bottom: 1px solid #f40;
+  }
+}
 .el-scrollbar {
   background-color: $main-bg1;
 }
 :deep(.el-menu) {
-  width: 220px;
+  width: 200px;
   background-color: $main-bg1;
   .el-sub-menu__title {
     &:hover {

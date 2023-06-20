@@ -1,6 +1,8 @@
 <template>
   <div class="layout">
-    <Menu></Menu>
+    <el-aside :width="user.isCollapse ? '60px' : '200px'">
+      <Menu></Menu>
+    </el-aside>
     <div class="right">
       <div class="top-bar">
         <Header />
@@ -17,6 +19,9 @@
 import Header from './header/header.vue'
 import Menu from './menu/menu.vue'
 import TagsView from './tagsView/tagsView.vue'
+import usePinia from '@/store'
+
+const { user } = usePinia()
 </script>
 
 <style lang="scss" scoped>
@@ -24,6 +29,9 @@ import TagsView from './tagsView/tagsView.vue'
   width: 100%;
   height: 100vh;
   display: flex;
+  .el-aside {
+    transition: width 0.2s linear;
+  }
   .right {
     flex: 1;
     height: 100%;

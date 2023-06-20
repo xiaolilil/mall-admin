@@ -77,7 +77,7 @@ const useUserStore = defineStore({
           })
       })
     },
-    SET_COLLAPSE(state: boolean) {
+    setCollapse(state: boolean) {
       this.isCollapse = state
     },
     SET_CURRROUTE(route: string) {
