@@ -3,11 +3,11 @@
     <div class="menu-top flex-center">
       <h2 v-show="!user.isCollapse">mall-admin</h2>
       <svg-icon
-          v-show="user.isCollapse"
-          class="block m-auto "
-          icon-class="login-mall"
-          style="width: 26px; height: 26px; color: #409eff"
-        ></svg-icon>
+        v-show="user.isCollapse"
+        class="block m-auto"
+        icon-class="login-mall"
+        style="width: 26px; height: 26px; color: #409eff"
+      ></svg-icon>
     </div>
     <el-scrollbar height="calc(100vh - 41px)">
       <!-- background-color="#545c64" -->
@@ -134,8 +134,8 @@ const handleClose = (key: string, keyPath: string[]) => {
 .menu-box {
   background-color: $main-bg1;
   overflow: hidden;
-  .menu-top{
-    height:40px;
+  .menu-top {
+    height: 40px;
     line-height: 40px;
   }
   h2 {
